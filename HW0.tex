@@ -1,0 +1,49 @@
+\documentclass{homework}
+
+\title{Problem Set 0}
+\author{Hunter Damron, Jacob Folks, Syd Miyasaki, Jeffrey Russell}
+\date{September 5, 2018}
+
+\begin{document}
+	\maketitle
+	\begin{enumerate}
+		\setcounter{enumi}{3}
+		\item ``If horses are animals, then heads of horses are heads of animals'' = \\
+		``$\forall x \rightarrow \rightarrow E x A x \forall y \rightarrow \land h y E y \land h y A y$'', \\
+		``$\forall x \rightarrow \land E x \rightarrow E x A x \exists y \land A y \approx hx h y$''. \\
+		% TODO(HD)
+		($\forall$, for all things; $E$, is a horse; $A$, is an animal; $hx$, the head of $x$)
+		\item 
+		\begin{enumerate}
+			\item ``You can fool some of the people all of the time'' = ``$\forall t \rightarrow T t \exists p F p t$''.
+			\item ``You can fool all of the people some of the time'' = ``$\forall p \rightarrow P p \exists t T p t$''.
+			\item ``You can’t fool all of the people all of the time'' = \\
+			``$\lnot \forall t \rightarrow T t \forall p \rightarrow P p F p t$'', \\
+			``$\lnot \forall p \rightarrow P p \forall t \rightarrow T t F p t$'', \\
+			``$\forall t \rightarrow T t \exists p \rightarrow P p \lnot F p t$'', \\
+			``$\forall p \rightarrow P p \exists t \rightarrow T t \lnot F p t$''.
+		\end{enumerate}
+		($\forall$, for all things; $P$, is a person; $T$, is a time; $Fxy$, you can fool $x$ at $y$)
+		
+		\setcounter{enumi}{6}		
+		\item
+		\begin{enumerate}
+			\item ``Nobody likes everybody'' = \\
+			``$\lnot \exists p \forall q L p q$'', \\
+			``$\forall p \lnot \forall q L p q$''.
+			\item ``No Democrat likes every Republican'' = \\
+			``$\lnot \exists d \land D d \forall r \rightarrow R r L d r$'', \\
+			``$\forall d \rightarrow D d \lnot \forall r \rightarrow R r L d r$''.
+		\end{enumerate}
+		($\forall$, for all people; $Lxy$, $x$ likes $y$; $D$, is a Democrat; $R$, is a Republican)
+		
+		\item
+		\begin{enumerate}
+			\item ``Every farmer who owns a donkey needs hay'' = ``$\forall f \rightarrow \land F f \exists d \land D d O f d H f$''
+			\item ``Every farmer who owns a donkey beats it'' = \\
+			``$\forall f \rightarrow \land F f \exists d \land D d O f d \exists d \land \land D d O f d B f d$'', \\
+			``$\forall f \rightarrow F f \forall d \rightarrow \land D d O f d B f d$''.
+		\end{enumerate}
+		($\forall$, for all things; $F$, is a farmer; $D$, is a donkey; $Oxy$, $x$ owns $y$; $H$, needs hay; $Bxy$, $x$ beats $y$)
+	\end{enumerate}
+\end{document}
