@@ -2,7 +2,7 @@
 
 \title{Problem Set 1}
 \author{Hunter Damron, Jacob Folks, Syd Miyasaki, Jeffrey Russell}
-\date{September 12, 2018}
+\date{September 19, 2018}
 
 \begin{document}
 	\maketitle
@@ -10,18 +10,31 @@
 		\setcounter{enumi}{10}
 		\item Using $(\N; +, \cdot)$
 		\begin{enumerate}
-			\item $\{0\} \coloneqq \forall x \left[x + y = x = y + x\right]$.
-			\item $\{1\} \coloneqq \forall x \left[x \cdot y = x = y \cdot x \right]$.
-			\item $\{\langle m,n \rangle \mid n \text{ is the successor of } m \text{ in } \N\} \coloneqq n = m + 1$.
-			\item $\{\langle m,n \rangle \mid m < n \text{ in } \N\} \coloneqq \exists x \left[m + x = n\right]$.
+			\item $\{0\} \coloneqq \left\{ \langle x \rangle \mid \mathfrak{R} \models \forall v_1 \left[v_1 + v_0 = v_1 = v_0 + v_1\right] \lBrack x \rBrack \right\} $.
+			\item $\{1\} \coloneqq \left\{ \langle x \rangle \mid \mathfrak{R} \models \forall v_1 \left[v_1 \cdot v_0 = v_1 = v_0 \cdot v_1 \right] \lBrack x \rBrack \right\}$.
+			\item $\{\langle m,n \rangle \mid n \text{ is the successor of } m \text{ in } \N\} \coloneqq \left\{ \langle m,n \rangle \mid \mathfrak{R} \models v_1 = v_0 + 1 \lBrack m,n \rBrack \right\}$. %TODO redefine 1
+			\item $\{\langle m,n \rangle \mid m < n \text{ in } \N\} \coloneqq \left\{ \langle m,n \rangle \mid \mathfrak{R} \models \exists v_2 \left[v_0 + v_2 = v_1 \right] \lBrack m,n \rBrack \right\}$.
 		\end{enumerate}
 		\item Using $\mathfrak{R} = (\R; +, \cdot)$
 		\begin{enumerate}
-			\item $[0, \infty) \coloneqq \exists x \left[x \cdot x = y\right]$.
-			\item $\{2\} \coloneqq \forall x [x \cdot y = x + x]$.
+			\item $[0, \infty) \coloneqq \left\{ \langle x \rangle \mid \mathfrak{R} \models \exists v_1 \left[v_1 \cdot v_1 = v_0\right] \lBrack x \rBrack \right\}$.
+			\item $\{2\} \coloneqq \left\{\langle y \rangle \mid \mathfrak{R} \models \forall v_1 [v_1 \cdot v_0 = v_1 + v_1] \lBrack x \rBrack \right\}$.
 			\item That any finite union of intervals, the endpoints of which are algebraic, is definable on $\mathfrak{R}$.
 			\begin{proof}
-				\TODO.
+				Define interval membership $z \in [a,b]$ to be
+				\[ I(z,a,b) \coloneqq \left\{\langle z,a,b \rangle \mid \mathfrak{R} \models \exists v_3 \exists v_4 \left[v_0 = v_1 + v_3 \cdot v_3 \land v_0 + v_4 \cdot v_4 = v_2\right] \lBrack z,a,b \rBrack \right\}. \]
+				
+				\begin{description}
+					\item[Base Step: ]~\par
+					Define union of a single finite interval $[a,b]$ to be
+					\[ U(z,a,b) \coloneqq I(z,a,b). \]
+					
+					\item[Inductive Step: ]~\par
+					Define union of a union of finite intervals $[c_{0,0},c_{0,1}] \cup [c_{0,0}, c_{0,1}] \cup [c_{1,0}, c_{1,1}] \cup \dots \cup [c_{n,0}, c_{n,1}]$ to be
+					\[ U(z, c_{0,0}, c_{0,1}, c_{1,0}, c_{1,1}, \dots, c_{n,0}, c_{n,1}) \coloneqq U(z, c_{0,0}, c_{0,1}, c_{1,0}, c_{1,1}, \dots, c_{n-1,0}, c_{n-1,1}) \lor I(z, c_{n,0}, c_{n,1}). \]
+				\end{description}
+				
+				Thus by induction, any finite union of intervals with algebraic endpoints is definable on $\mathfrak{R}$.
 			\end{proof}
 		\end{enumerate}
 		
@@ -30,8 +43,9 @@
 		What subsets of $\R\times\R$ are definable in $(\R, <)$? Cartesian product of all unions of open intervals in $\R$. %TODO explain this too
 		
 		\setcounter{enumi}{15}
-		\item Give a sentence having models of size $2n$ for every positive integer $n$ but no finite models of odd size. (Here the language should include equality and will have whatever parameters you choose.) \emph{Suggestion}: One method is to make a sentence that says, ``Everything is either red or blue, and $f$ is a color-reversing permutation.'' \par
-		Given $Rx, Bx \coloneqq x$ is red or blue, respectively, and $fx$ is reverse color from $x$, 
-		\[\forall x \left[\left( (Rx \lor Bx) \land \lnot(Rx \land Bx)\right) \land \exists y \left[fx = y \leftrightarrow \left((Bx \land Ry) \land (By \land Rx) \right) \right] \right]\]
+		\item Give a sentence having models of size $2n$ for every positive integer $n$ but no finite models of odd size. (Here the language should include equality and will have whatever parameters you choose.) \emph{Suggestion}: One method is to make a sentence that says, ``Everything is either red or blue, and $f$ is a color-reversing permutation.''
+
+		This is satisfied by the model $\mathfrak{M} = (M; R, B, f)$ defined by sentence
+		\[ \forall x \left[ (Rx \lor Bx) \land \lnot (Rx \land Bx) \land (Rx \implies Bfx) \land (Bx \implies Rfx) \land (ffx = x) \right]. \]
 	\end{enumerate}
 \end{document}

@@ -7,7 +7,7 @@
 \RequirePackage{amsmath,amsthm,amssymb,mathtools}
 \RequirePackage{color}
 
-\geometry{margin=1in}
+\geometry{margin=0.75in}
 
 \newtheorem{theorem}{Theorem}
 
@@ -21,6 +21,8 @@
 
 \renewcommand{\triangle}{\vartriangle}
 \newcommand{\contradict}{\Rightarrow\!\Leftarrow}
+\newcommand{\lBrack}{\mathbb{[\![}}
+\newcommand{\rBrack}{\mathbb{]\!]}}
 
 \newcommand{\textTODO}{\textcolor{red}{TODO}}
 \newcommand{\TODO}{\ifmmode\text{\textTODO}\else\textTODO\fi}
