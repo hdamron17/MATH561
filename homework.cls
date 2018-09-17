@@ -22,5 +22,5 @@
 \renewcommand{\triangle}{\vartriangle}
 \newcommand{\contradict}{\Rightarrow\!\Leftarrow}
 
-\newcommand{\TODO}{\textcolor{red}{TODO}}
-\newcommand{\mTODO}{\text{\TODO}}
+\newcommand{\textTODO}{\textcolor{red}{TODO}}
+\newcommand{\TODO}{\ifmmode\text{\textTODO}\else\textTODO\fi}
